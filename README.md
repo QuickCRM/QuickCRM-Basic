@@ -28,14 +28,6 @@ Usage:
 From your mobile, connect to <your-sugarcrm-url>/mobile or use native apps on iOS and Android.
 You can then login with the same credentials you use for the web based client.
 
-IMPORTANT NOTE FOR SUGARCRM 6.5.15, 6.5.16 AND 6.5.17 USERS:
-------------------------------------------------------------
-Please be aware that there is a bug in SugarCRM Web services.
-This bug prevents sort order to work properly in QuickCRM.
-This bug is reported to SugarCRM (bug number 66206). A workaround has been posted at
-https://web.sugarcrm.com/support/issues/401003ee-0601-4687-d5ba-528cc8afb7b7
-This bug is not present in earlier versions. It has also been fixed in SuiteCRM 7.1 and later.
-
 Change Log:
 -----------
 - 3.3.6 :
