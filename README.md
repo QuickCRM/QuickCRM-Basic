@@ -21,7 +21,12 @@ The software and documents are distributed on an “AS IS” basis, WITHOUT WARR
 
 Installation:
 -------------
-Use SugarCRM Module Loader and install QuickCRM-Mobile-Basic
+Download the Repository as a ZIP
+**Due to a github issue, the ZIP will contain the files within folder, SuiteCRM expects the files to be at the root level of the zip folder**
+Unzip the Zip folder and select the files inside of QuickCRM-Basic-master and zip these into a new folder which has them at the root level.
+Accessthe administartion panel of your Suite installation and run the Module Loader
+Upload the ZIP
+Install.
 
 Usage:
 ------
