@@ -12,7 +12,7 @@
  * 
  ********************************************************************************/
 
-Interested in QuickCRM Mobile Pro?
+Interested in QuickCRM Mobile Full?
 Contact us at quickcrm@ns-team.fr or visit http://www.quickcrm.fr/mobile
 
 Disclaimer:
@@ -21,7 +21,8 @@ The software and documents are distributed on an “AS IS” basis, WITHOUT WARR
 
 Installation:
 -------------
-Use SugarCRM Module Loader and install QuickCRM-Mobile-Basic
+Download latest version of the module on the Releases page at https://github.com/QuickCRM/QuickCRM-Basic/releases
+Then use SugarCRM Module Loader and install QuickCRM-Mobile-Basic zip file
 
 Usage:
 ------
