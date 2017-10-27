@@ -1,7 +1,7 @@
 # QuickCRM-Basic
 /*********************************************************************************
  * 
- * QuickCRM Mobile Basic is a mobile web client and native app for SugarCRM
+ * QuickCRM Mobile Basic is a mobile web client and native app for Sugar/SuiteCRM
  * 
  * Author : NS-Team (http://www.quickcrm.fr/mobile)
  *
@@ -22,15 +22,17 @@ The software and documents are distributed on an “AS IS” basis, WITHOUT WARR
 Installation:
 -------------
 Download latest version of the module on the Releases page at https://github.com/QuickCRM/QuickCRM-Basic/releases
-Then use SugarCRM Module Loader and install QuickCRM-Mobile-Basic zip file
+Then use Sugar/SuiteCRM Module Loader and install QuickCRM-Mobile-Basic zip file
 
 Usage:
 ------
-From your mobile, connect to <your-sugarcrm-url>/mobile or use native apps on iOS and Android.
+From your mobile, use QuickCRM native apps on iOS and Android. You can install the apps fromApp Store and Google Play.
 You can then login with the same credentials you use for the web based client.
 
 Change Log:
 -----------
+- 3.4.0 :
+  * Fixed PHP 7.1 issue.
 - 3.3.6 :
   * Fixed sort order bug in SugarCRM 6.5.15 to 6.5.20
 - 3.3.5 :
