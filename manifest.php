@@ -16,9 +16,9 @@ $manifest = array (
 	  'icon' => '',
 	  'is_uninstallable' => true,
 	  'name' => 'QuickCRM Mobile Basic',
-	  'published_date' => '2015-02-26',
+	  'published_date' => '2017-10-27',
 	  'type' => 'module',
-	  'version' => '3.3.6',
+	  'version' => '3.4.0',
 	  'remove_tables' => 'false',
 
 	  );
