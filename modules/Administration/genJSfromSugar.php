@@ -18,7 +18,8 @@ class mobile_jsLanguage {
     /**
      * Creates javascript versions of language files
      */
-    function mobile_jsLanguage() {
+    public function __construct()
+    {
     }
     
     function getListOfLists($lst_mod) {
@@ -254,7 +255,7 @@ function createMobileFiles(){
 		function CheckAccess(){
 			global $sugar_config;
 
-			if (is_windows()){
+			if (is_windows() || !function_exists('curl_init')){
 				return true;
 			}
 			else {
