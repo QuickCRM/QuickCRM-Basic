@@ -75,7 +75,7 @@ class mobile_jsLanguage {
 		$SS_mod_strings = return_module_language($lang, "SavedSearch");
 		$ADM_mod_strings = return_module_language($lang, "Administration");
         $str = <<<EOQ
-var RES_CREATE='{$app_strings['LBL_CREATE_BUTTON_LABEL']}',RES_LIST='{$app_strings['LBL_LIST']}',RES_ADD_TO_HOME='{$app_strings['LBL_MARK_AS_FAVORITES']}',RES_REM_FROM_HOME='{$app_strings['LBL_REMOVE_FROM_FAVORITES']}',RES_RECORD_ERROR='{$app_strings['ERROR_NO_RECORD']}',RES_LAST_VIEWED='{$app_strings['LBL_LAST_VIEWED']}', RES_DELETE_CONFIRMATION='{$app_strings['NTC_DELETE_CONFIRMATION']}', RES_DEL_LABEL='{$app_strings['LBL_DELETE_BUTTON_LABEL']}', RES_NEXT_LABEL='{$app_strings['LNK_LIST_NEXT']}', RES_PREVIOUS_LABEL='{$app_strings['LNK_LIST_PREVIOUS']}',
+var RES_CREATE='{$app_strings['LBL_CREATE_BUTTON_LABEL']}',RES_LIST='{$app_strings['LBL_LIST']}',RES_ADD_TO_HOME='{$app_strings['LBL_MARK_AS_FAVORITES']}',RES_REM_FROM_HOME='{$app_strings['LBL_REMOVE_FROM_FAVORITES']}',RES_LAST_VIEWED='{$app_strings['LBL_LAST_VIEWED']}', RES_DELETE_CONFIRMATION='{$app_strings['NTC_DELETE_CONFIRMATION']}', RES_DEL_LABEL='{$app_strings['LBL_DELETE_BUTTON_LABEL']}', RES_NEXT_LABEL='{$app_strings['LNK_LIST_NEXT']}', RES_PREVIOUS_LABEL='{$app_strings['LNK_LIST_PREVIOUS']}',
  RES_ASC='{$SS_mod_strings["LBL_ASCENDING"]}',RES_DESC='{$SS_mod_strings["LBL_DESCENDING"]}',RES_HOME_LABEL='{$all_app_list_strings["moduleList"]["Home"]}',RES_SYNC='{$all_app_list_strings["moduleList"]["Sync"]}',RES_SAVEDSEARCH='{$all_app_list_strings["moduleList"]["SavedSearch"]}',RES_SAVESEARCH='{$SS_mod_strings["LBL_SAVE_SEARCH_AS"]}',RES_DISABLED='{$ADM_mod_strings["LBL_DISABLED"]}',
  sugar_app_list_strings = $app_list_strings_encoded;
 EOQ;
