@@ -75,7 +75,7 @@ class mobile_jsLanguage {
 		$SS_mod_strings = return_module_language($lang, "SavedSearch");
 		$ADM_mod_strings = return_module_language($lang, "Administration");
         $str = <<<EOQ
-var RES_CREATE='{$app_strings['LBL_CREATE_BUTTON_LABEL']}',RES_LIST='{$app_strings['LBL_LIST']}',RES_ADD_TO_HOME='{$app_strings['LBL_MARK_AS_FAVORITES']}',RES_REM_FROM_HOME='{$app_strings['LBL_REMOVE_FROM_FAVORITES']}',RES_LAST_VIEWED='{$app_strings['LBL_LAST_VIEWED']}', RES_DELETE_CONFIRMATION='{$app_strings['NTC_DELETE_CONFIRMATION']}', RES_DEL_LABEL='{$app_strings['LBL_DELETE_BUTTON_LABEL']}', RES_NEXT_LABEL='{$app_strings['LNK_LIST_NEXT']}', RES_PREVIOUS_LABEL='{$app_strings['LNK_LIST_PREVIOUS']}',
+var RES_CREATE="{$app_strings['LBL_CREATE_BUTTON_LABEL']}',RES_LIST='{$app_strings['LBL_LIST']}',RES_ADD_TO_HOME='{$app_strings['LBL_MARK_AS_FAVORITES']}',RES_REM_FROM_HOME='{$app_strings['LBL_REMOVE_FROM_FAVORITES']}',RES_LAST_VIEWED='{$app_strings['LBL_LAST_VIEWED']}', RES_DELETE_CONFIRMATION='{$app_strings['NTC_DELETE_CONFIRMATION']}', RES_DEL_LABEL='{$app_strings['LBL_DELETE_BUTTON_LABEL']}', RES_NEXT_LABEL='{$app_strings['LNK_LIST_NEXT']}', RES_PREVIOUS_LABEL='{$app_strings['LNK_LIST_PREVIOUS']}',
  RES_ASC='{$SS_mod_strings["LBL_ASCENDING"]}',RES_DESC='{$SS_mod_strings["LBL_DESCENDING"]}',RES_HOME_LABEL='{$all_app_list_strings["moduleList"]["Home"]}',RES_SYNC='{$all_app_list_strings["moduleList"]["Sync"]}',RES_SAVEDSEARCH='{$all_app_list_strings["moduleList"]["SavedSearch"]}',RES_SAVESEARCH='{$SS_mod_strings["LBL_SAVE_SEARCH_AS"]}',RES_DISABLED='{$ADM_mod_strings["LBL_DISABLED"]}',
  sugar_app_list_strings = $app_list_strings_encoded;
 EOQ;
@@ -130,15 +130,8 @@ EOQ;
 		$app_strings_encoded = $json->encode($str_app_array);
 		$str .= "var sugar_app_strings = $app_strings_encoded;";
         
-		require_once('modules/Administration/Administration.php');
-		$administration = new Administration();
-		$administration->saveSetting('QuickCRM', $lang, base64_encode($str));
-		$in_file=(strlen ($str) > 49000?'1':'0');
-		$administration->saveSetting('QuickCRM', $lang.'f', $in_file);
-		
-//		if ($sugar_config['sugar_version']<'6.3'){
 			$saveDir = realpath(dirname(__FILE__).'/../../../mobile/fielddefs/');
-			if($fh = @fopen($saveDir . '/' .$lang . '.js', "w")){
+			if($fh = fopen($saveDir . '/' .$lang . '.js', "w")){
 				fputs($fh, $str);
 				fclose($fh);
 			}
@@ -146,7 +139,6 @@ EOQ;
 			{
 					// die();
 			}
-//		}
     }
     
     function createDefaultLocalization() {
@@ -231,11 +223,9 @@ EOQ;
 		$str .= "var CustomHTML=".(file_exists("custom/QuickCRM/home.html")?"true":"false").";";
 		$str .= "var CustomJS=".(file_exists("custom/QuickCRM/custom.js")?"true":"false").";";
 
-		$administration->saveSetting('QuickCRM', 'sugar_config', base64_encode($str));
-		
 			$saveDir = realpath(dirname(__FILE__).'/../../../mobile/');
         
-			if($fh = @fopen($saveDir . '/config.js', "w")){
+			if($fh = fopen($saveDir . '/config.js', "w")){
 				fputs($fh, $str);
 				fclose($fh);
 			}
