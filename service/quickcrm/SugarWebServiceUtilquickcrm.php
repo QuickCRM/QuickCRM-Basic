@@ -166,8 +166,17 @@ class SugarWebServiceUtilquickcrm extends SugarWebServiceUtilv4_1
      *
 	 * NS-TEAM : - fix bug with order by 
      */
-    function get_data_list($seed, $order_by = "", $where = "", $row_offset = 0, $limit=-1, $max=-1, $show_deleted = 0, $favorites = false)
-	{
+    function get_data_list(
+        $seed,
+        $order_by = "",
+        $where = "",
+        $row_offset = 0,
+        $limit = -1,
+        $max = -1,
+        $show_deleted = 0,
+        $favorites = false,
+        $single_select = false
+    ) {
 		global $sugar_version;
 		$GLOBALS['log']->debug("get_list:  order_by = '$order_by' and where = '$where' and limit = '$limit'");
 		if(isset($_SESSION['show_deleted']))
