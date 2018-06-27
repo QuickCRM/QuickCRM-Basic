@@ -218,10 +218,26 @@ EOQ;
 			$str .= ' aos_installed = false,';
 		}
 		$str .= ' securitysuite = '.(in_array ('SecurityGroups',$moduleList)?'true':'false').',';
-        $str .= ' offline_max_days = 0;';
-        $str .= 'var quickcrm_upd_time = "'.time().'";';
-		$str .= "var CustomHTML=".(file_exists("custom/QuickCRM/home.html")?"true":"false").";";
-		$str .= "var CustomJS=".(file_exists("custom/QuickCRM/custom.js")?"true":"false").";";
+        	$str .= ' offline_max_days = 0;';
+        	$str .= 'var quickcrm_upd_time = "'.time().'";';
+		
+	    	$google_key = '';
+		if (isset($administration->settings['jjwg_google_maps_api_key'])){
+			$google_key=$administration->settings['jjwg_google_maps_api_key'];
+		}
+		else if (isset($sugar_config['google_maps_api_key'])) {
+			$google_key = $sugar_config['google_maps_api_key'];
+		}
+		if ($google_key !='') {
+			$str .= 'QCRM.google_api_key="'.$google_key.'";';
+		}
+		if (isset($sugar_config['google_api_ios_key'])) {
+			$str .= 'QCRM.google_api_ios_key="'.$sugar_config['google_api_ios_key'].'";';
+		}
+		if (isset($sugar_config['google_api_android_key'])) {
+			$str .= 'QCRM.google_api_android_key="'.$sugar_config['google_api_android_key'].'";';
+		}
+
 
 			$saveDir = realpath(dirname(__FILE__).'/../../../mobile/');
         
