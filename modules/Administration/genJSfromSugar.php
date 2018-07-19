@@ -219,7 +219,8 @@ EOQ;
 		}
 		$str .= ' securitysuite = '.(in_array ('SecurityGroups',$moduleList)?'true':'false').',';
         	$str .= ' offline_max_days = 0;';
-        	$str .= 'var quickcrm_upd_time = "'.time().'";';
+        	$str .= 'var trial = false;quickcrm_upd_time = "'.time().'";';
+		$str .= "var CustomHTML=false, CustomJS= false;";
 		
 	    	$google_key = '';
 		if (isset($administration->settings['jjwg_google_maps_api_key'])){
