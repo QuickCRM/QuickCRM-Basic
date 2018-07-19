@@ -70,7 +70,7 @@ class mobile_jsLanguage {
 		}
 		
 		$json = getJSONobj();
-        $app_list_strings_encoded = str_replace('\\\\',"\/",preg_replace("/'/","&#039;",$json->encode($app_list_strings)));
+        $app_list_strings_encoded = json_encode($app_list_strings, JSON_HEX_APOS);
         
 		$SS_mod_strings = return_module_language($lang, "SavedSearch");
 		$ADM_mod_strings = return_module_language($lang, "Administration");
@@ -127,7 +127,7 @@ EOQ;
 		foreach($app_array as $key){
 			$str_app_array[$key] = str_replace('"','\\"',isset($app_strings[$key])?$app_strings[$key]:$key);
 		}
-		$app_strings_encoded = $json->encode($str_app_array);
+        $app_strings_encoded = json_encode($str_app_array, JSON_HEX_APOS);
 		$str .= "var sugar_app_strings = $app_strings_encoded;";
         
 			$saveDir = realpath(dirname(__FILE__).'/../../../mobile/fielddefs/');
@@ -218,11 +218,10 @@ EOQ;
 			$str .= ' aos_installed = false,';
 		}
 		$str .= ' securitysuite = '.(in_array ('SecurityGroups',$moduleList)?'true':'false').',';
-        	$str .= ' offline_max_days = 0;';
-        	$str .= 'var trial = false;quickcrm_upd_time = "'.time().'";';
+        $str .= ' offline_max_days = 0;';
+        $str .= 'var trial = false, quickcrm_upd_time = "'.time().'";';
 		$str .= "var CustomHTML=false, CustomJS= false;";
-		
-	    	$google_key = '';
+		$google_key = '';
 		if (isset($administration->settings['jjwg_google_maps_api_key'])){
 			$google_key=$administration->settings['jjwg_google_maps_api_key'];
 		}
@@ -240,15 +239,19 @@ EOQ;
 		}
 
 
-			$saveDir = realpath(dirname(__FILE__).'/../../../mobile/');
-        
-			if($fh = fopen($saveDir . '/config.js', "w")){
+		if($fh = fopen($saveDir.'/../config.js', "w")){
 				fputs($fh, $str);
 				fclose($fh);
-			}
+		}
     }
     
 	function createAllFiles(){
+		require_once 'modules/Configurator/Configurator.php';
+		$configurator = new Configurator();
+		$configurator->loadConfig();
+		$configurator->config['quickcrm_trial'] = false;
+		$configurator->saveConfig();
+
 		$this->createDefaultLocalization();
 		$lst_lang=get_languages();
 		foreach($lst_lang as $language => $language_name){
