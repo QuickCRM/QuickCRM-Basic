@@ -26,6 +26,18 @@
 		<meta name="apple-itunes-app" content="app-id=593452214">
         <link rel="apple-touch-icon" href="images/QuickCRM-CE.png"/>
         <script type="text/javascript" src="lib/jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" language="Javascript">
+			var froot="./", QCRM={}, app_version="",mobile_app=false, sugar_flavor='CE', ForceCE=false, loaded_scripts=false, proxy_url, QuickCRMAddress = '.', ServerAddress='../',myTimeZone,qusers, mobile_usr=new Array(),  init_module = '', init_record="";
+				QAppName="QuickCRM",
+				QCRM={
+					OffLine:false,
+					StoredVersion:false,
+					UpdatedConfig:false,
+					TimeDiff:false,
+					JJWG:false,
+					calendar: {enabled:false,dates:{},init:false, currDate:new Date()}
+				};
+		</script>
 		<?php
         echo <<<EOQ
         <script type="text/javascript" src="config.js?v=$time"></script>
@@ -43,30 +55,14 @@ EOQ;
         <script type="text/javascript" src="lib/mobiscroll/mobiscroll-2.5.custom.min.js"></script>
         <script type="text/javascript" src="lib/json2.min.js"></script>
 		<script type="text/javascript" language="Javascript">
-			var froot="./", QCRM={}, app_version="",mobile_app=false, sugar_flavor='CE', ForceCE=false, loaded_scripts=false, proxy_url, QuickCRMAddress = '.', ServerAddress='../',myTimeZone,qusers, mobile_usr=new Array(),  init_module = '', init_record="";
-				QAppName="QuickCRM",
-				QCRM={
-					OffLine:false,
-					StoredVersion:false,
-					UpdatedConfig:false,
-					TimeDiff:false,
-					JJWG:false,
-					calendar: {enabled:false,dates:{},init:false, currDate:new Date()}
-				};
 			$( document ).bind( "mobileinit", function() {
 				$.mobile.defaultPageTransition = 'none';
 			});
-		proxy_url=(QuickCRMAddress+(QuickCRMAddress.substr(-1)==="/"?"":"/"))+(mobile_app?"REST":"../service/v"+(sugar_version >= '6.4'?'4_1':(sugar_version >= '6.2'?'4':'2')))+"/rest.php";
+			proxy_url=(QuickCRMAddress+(QuickCRMAddress.substr(-1)==="/"?"":"/"))+(mobile_app?"REST":"../service/v"+(sugar_version >= '6.4'?'4_1':(sugar_version >= '6.2'?'4':'2')))+"/rest.php";
 		</script>
         <script type="text/javascript" src="js/quickcrm-utils-ce-3.2.min.js"></script>
         <script type="text/javascript" src="js/quickcrm-ce-3.3.2.min.js"></script>
-		<?php
-		if (file_exists("../custom/QuickCRM/custom.js")) {
-			echo '<script type="text/javascript" src="../custom/QuickCRM/custom.js?v='.time().'"></script>';
-		}
-		?>
 		
-
 		<?php
 		if(isset($_REQUEST['module']) && isset($_REQUEST['record'])){
         echo <<<EOQ
