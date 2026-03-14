@@ -48,7 +48,7 @@ if (!defined('sugarEntry')) define('sugarEntry', true);
  *
  */
 require_once('service/v4_1/SugarWebServiceImplv4_1.php');
-require_once('service/quickcrm/SugarWebServiceUtilquickcrm.php');
+require_once('custom/service/quickcrm/SugarWebServiceUtilquickcrm.php');
 
 class SugarWebServiceImplquickcrm extends SugarWebServiceImplv4_1
 {

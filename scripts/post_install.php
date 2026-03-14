@@ -7,7 +7,7 @@
  *
  * QuickCRM Mobile CE is licensed under GNU General Public License v3 (GPLv3) 
  * 
- * You can contact NS-Team at NS-Team - 55 Chemin de Mervilla - 31320 Auzeville - France
+ * You can contact NS-Team at NS-Team - 8 allee Paul Harris, 31200 Toulouse - France
  * or via email at quickcrm@ns-team.fr
  * 
  ********************************************************************************/
@@ -26,6 +26,6 @@ function post_install() {
 
 	$webapp=$sugar_config['site_url'].'/mobile';
 	$nativeapp=$sugar_config['site_url'];
-	echo "<br/>You can access the CRM from a mobile at <strong><br>&nbsp;-&nbsp;Web app : $webapp<br>&nbsp;-&nbsp;QuickCRM for iOS : $nativeapp<br>&nbsp;-&nbsp;QuickCRM for Android : $nativeapp".'</strong>';
+	echo "<br/>You can access the CRM from a mobile at <strong><br>&nbsp;-&nbsp;QuickCRM for iOS : $nativeapp<br>&nbsp;-&nbsp;QuickCRM for Android : $nativeapp".'</strong>';
 }
 ?>

@@ -8,4 +8,4 @@
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: POST,GET");
 header("Access-Control-Allow-Credentials: true");
-require_once('../../service/quickcrm/rest.php');
+require_once('../../custom/service/quickcrm/rest.php');

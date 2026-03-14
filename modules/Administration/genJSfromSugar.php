@@ -7,11 +7,12 @@
  *
  * QuickCRM Mobile CE is licensed under GNU General Public License v3 (GPLv3) 
  * 
- * You can contact NS-Team at NS-Team - 55 Chemin de Mervilla - 31320 Auzeville - France
+ * You can contact NS-Team at NS-Team - 8 allee Paul Harris, 31200 Toulouse - France
  * or via email at quickcrm@ns-team.fr
  * 
  ********************************************************************************/
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+include ('custom/modules/Administration/quickcrm_global.php');
  
 class mobile_jsLanguage {
     
@@ -22,6 +23,18 @@ class mobile_jsLanguage {
     {
     }
     
+	function suitecrmVersion(){
+		global $sugar_config;
+		if (file_exists('suitecrm_version.php')){
+			include('suitecrm_version.php');
+			return $suitecrm_version;
+		}
+		else if (isset($sugar_config['suitecrm_version']) ){
+			return $sugar_config['suitecrm_version'];
+		}
+		return False;
+	}
+	
     function getListOfLists($lst_mod) {
 		global $beanFiles, $beanList;
 		require_once('include/utils.php');
@@ -90,8 +103,6 @@ EOQ;
 			'LBL_BACK',
 			'LBL_SAVE_BUTTON_LABEL',
 			'LBL_CANCEL_BUTTON_LABEL',
-			'LBL_MARK_AS_FAVORITES',
-			'LBL_REMOVE_FROM_FAVORITES',
 			'NTC_DELETE_CONFIRMATION',
 			'LBL_DELETE_BUTTON_LABEL',
 			'ERROR_NO_RECORD',
@@ -130,7 +141,7 @@ EOQ;
         $app_strings_encoded = json_encode($str_app_array, JSON_HEX_APOS);
 		$str .= "var sugar_app_strings = $app_strings_encoded;";
         
-			$saveDir = realpath(dirname(__FILE__).'/../../../mobile/fielddefs/');
+			$saveDir = create_cache_directory('mobile_js/');
 			if($fh = fopen($saveDir . '/' .$lang . '.js', "w")){
 				fputs($fh, $str);
 				fclose($fh);
@@ -155,8 +166,7 @@ EOQ;
         $str .= '$time = "'.time().'";';
         $str .= ' ?>';
         
-//		if ($sugar_config['sugar_version']<'6.3'){
-			$saveDir = realpath(dirname(__FILE__).'/../../../mobile/fielddefs/');
+			$saveDir = create_cache_directory('mobile_js/');
 			if($fh = fopen($saveDir .'/' . 'localization.php', "w")){
 				fputs($fh, $str);
 				fclose($fh);
@@ -166,11 +176,18 @@ EOQ;
 				$mod_strings = return_module_language($current_language, "Administration");
 				echo $mod_strings['LBL_ERR_DIR_MSG'].$saveDir;
 			}
-//		}
 		
 		$str = "var mobile_edition = 'CE',Q_API='2.3', app_support=true, module_access={}, sugar_mod_fields={},";
         $str .= ' js_plugins=[],html_plugins=[],';
-        $str .= ' sugar_version = "'.$sugar_config['sugar_version'].'",';
+        $str .= ' sugar_version = "6.5",';
+
+		$version = $this->suitecrmVersion();
+		if ($version){
+			$str .= 'suitecrm = "' . $version . '",';
+		}
+		else {
+			$str .= 'suitecrm = false,';
+		}
         $str .= ' sugar_name = "'.$administration->settings['system_name'].'",';
         $str .= ' default_language = "'.$sugar_config['default_language'].'",';
 		$lst_lang=get_languages();
@@ -239,7 +256,7 @@ EOQ;
 		}
 
 
-		if($fh = fopen($saveDir.'/../config.js', "w")){
+		if($fh = fopen($saveDir.'/config.js', "w")){
 				fputs($fh, $str);
 				fclose($fh);
 		}

@@ -16,9 +16,9 @@ $manifest = array (
 	  'icon' => '',
 	  'is_uninstallable' => true,
 	  'name' => 'QuickCRM Mobile Basic',
-	  'published_date' => '2018-07-19',
+	  'published_date' => '2023-11-08',
 	  'type' => 'module',
-	  'version' => '3.9.0',
+	  'version' => '4.0.0',
 	  'remove_tables' => 'false',
 
 	  );
@@ -26,10 +26,6 @@ $installdefs = array (
     'id' => 'QuickCRM_Mobile_CE',
 	'copy' => 
 		array (
-			array (
-				'from' => '<basepath>/mobile',
-				'to' => 'mobile',
-			),
 			array(
 				'from' => '<basepath>/modules/Administration/genJSfromSugar.php',
 				'to'   => 'custom/modules/Administration/genJSfromSugar.php'
@@ -37,6 +33,10 @@ $installdefs = array (
 			array(
 				'from' => '<basepath>/modules/Administration/updatequickcrm.php',
 				'to'   => 'custom/modules/Administration/updatequickcrm.php'
+			),
+			array(
+				'from' => '<basepath>/modules/Administration/quickcrm_global.php',
+				'to'   => 'custom/modules/Administration/quickcrm_global.php'
 			),
 			array(
 				'from' => '<basepath>/modules/QuickCRM',
@@ -48,7 +48,7 @@ $installdefs = array (
 			),
 			array(
 				'from' => '<basepath>/service/quickcrm',
-				'to'   => 'service/quickcrm'
+				'to'   => 'custom/service/quickcrm'
 			),
 		),
 

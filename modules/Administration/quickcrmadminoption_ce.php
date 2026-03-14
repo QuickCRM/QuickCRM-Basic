@@ -7,7 +7,7 @@
  *
  * QuickCRM Mobile CE is licensed under GNU General Public License v3 (GPLv3) 
  * 
- * You can contact NS-Team at NS-Team - 55 Chemin de Mervilla - 31320 Auzeville - France
+ * You can contact NS-Team at NS-Team - 8 allee Paul Harris, 31200 Toulouse - France
  * or via email at quickcrm@ns-team.fr
  * 
  ********************************************************************************/

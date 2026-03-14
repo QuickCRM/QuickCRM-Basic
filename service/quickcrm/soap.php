@@ -48,6 +48,6 @@ $webservice_class = 'SugarSoapService2';
 $webservice_path = 'service/v2/SugarSoapService2.php';
 $webservice_impl_class = 'SugarWebServiceImplquickcrm';
 $registry_class = 'registry_quickcrm';
-$registry_path = 'service/quickcrm/registry.php';
-$location = '/service/quickcrm/soap.php';
+$registry_path = 'custom/service/quickcrm/registry.php';
+$location = '/custom/service/quickcrm/soap.php';
 require_once('service/core/webservice.php');

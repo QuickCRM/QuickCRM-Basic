@@ -177,15 +177,10 @@ class SugarWebServiceUtilquickcrm extends SugarWebServiceUtilv4_1
         $favorites = false,
         $single_select = false
     ) {
-		global $sugar_version;
 		$GLOBALS['log']->debug("get_list:  order_by = '$order_by' and where = '$where' and limit = '$limit'");
 		if(isset($_SESSION['show_deleted']))
 		{
 			$show_deleted = 1;
-		}
-		// Fix bug with sort order in get_entry_list
-		if ($sugar_version < '6.5.15') {
-			$order_by=$seed->process_order_by($order_by, null);
 		}
 
 		$params = array();

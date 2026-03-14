@@ -7,7 +7,7 @@
  *
  * QuickCRM Mobile CE is licensed under GNU General Public License v3 (GPLv3) 
  * 
- * You can contact NS-Team at NS-Team - 55 Chemin de Mervilla - 31320 Auzeville - France
+ * You can contact NS-Team at NS-Team - 8 allee Paul Harris, 31200 Toulouse - France
  * or via email at infos@ns-team.fr
  * 
  ********************************************************************************/
@@ -18,9 +18,7 @@ require_once('custom/modules/Administration/genJSfromSugar.php');
 global $sugar_config;
 global $mod_strings;
 createMobileFiles();
-echo $mod_strings['LBL_UPDATE_MSG']." <strong>".$sugar_config['site_url'].'/mobile</strong>';
-$webapp=$sugar_config['site_url'].'/mobile';
 $nativeapp=$sugar_config['site_url'];
-echo $mod_strings['LBL_UPDATE_MSG']." <strong><br>&nbsp;-&nbsp;Web app : $webapp<br>&nbsp;-&nbsp;QuickCRM for iOS : $nativeapp<br>&nbsp;-&nbsp;QuickCRM for Android : $nativeapp".'</strong>';
+echo $mod_strings['LBL_UPDATE_MSG']." <strong><br>&nbsp;-&nbsp;QuickCRM for iOS : $nativeapp<br>&nbsp;-&nbsp;QuickCRM for Android : $nativeapp".'</strong>';
 
 ?>

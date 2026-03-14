@@ -52,7 +52,6 @@ class registry_quickcrm extends registry_v4_1 {
 	 */
 	protected function registerFunction()
 	{
-		$GLOBALS['log']->fatal('Begin: registry->registerFunction');
 		parent::registerFunction();
 
 	   $this->serviceClass->registerFunction(

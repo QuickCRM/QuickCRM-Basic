@@ -11,7 +11,7 @@ if ($_REQUEST['param']=='file') {
 }
 else {
 	header("Content-Type: application/javascript");
-	$f='mobile'.(isset($_REQUEST['trial'])?'_trial':'').'/fielddefs/';
+	$f=create_cache_directory('mobile_js/');
 	
 	switch ($_REQUEST['param']){
 		case 'custom':
@@ -20,7 +20,7 @@ else {
 			}
 			break;
 		case 'sugar_config':
-			$res .= file_get_contents($f.'../config.js',true);
+			$res .= file_get_contents($f.'config.js',true);
 			break;
 		default:
 			$res= file_get_contents($f.basename($_REQUEST['param']).'.js',true);
